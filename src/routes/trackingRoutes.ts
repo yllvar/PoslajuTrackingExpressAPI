@@ -8,8 +8,6 @@ const router = express.Router();
  * /track/{trackingNo}:
  *   get:
  *     summary: Track a Poslaju parcel
- *     security:
- *       - ApiKeyAuth: []
  *     parameters:
  *       - in: path
  *         name: trackingNo
@@ -22,8 +20,6 @@ const router = express.Router();
  *         description: Tracking information retrieved successfully
  *       400:
  *         description: Invalid tracking number format
- *       401:
- *         description: Invalid API Key
  *       404:
  *         description: Tracking information not found
  *       429:
