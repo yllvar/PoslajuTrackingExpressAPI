@@ -10,26 +10,12 @@ const options = {
     },
     servers: [
       {
-        url: 'https://your-api-url.herokuapp.com',
-        description: 'Production server',
+        url: 'https://your-rapidapi-url.com',
+        description: 'RapidAPI server',
       },
       {
         url: 'http://localhost:3000',
         description: 'Development server',
-      },
-    ],
-    components: {
-      securitySchemes: {
-        ApiKeyAuth: {
-          type: 'apiKey',
-          in: 'header',
-          name: 'X-RapidAPI-Key',
-        },
-      },
-    },
-    security: [
-      {
-        ApiKeyAuth: [],
       },
     ],
   },
