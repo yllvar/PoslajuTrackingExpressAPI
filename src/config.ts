@@ -4,6 +4,5 @@ export const CONFIG = {
   MAX_RETRIES: 3,
   RETRY_DELAY: 1000, // 1 second
   DEBUG: process.env.DEBUG === 'true',
-  API_KEY: process.env.API_KEY || 'your-default-api-key',
 };
 
