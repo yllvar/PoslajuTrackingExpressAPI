@@ -12,15 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// API Key Middleware
-const apiKeyMiddleware = (req: express.Request, res: express.Response, next: express.NextFunction) => {
-  const apiKey = req.header('X-RapidAPI-Key');
-  if (!apiKey || apiKey !== CONFIG.API_KEY) {
-    return res.status(401).json({ status: 'error', message: 'Invalid API Key' });
-  }
-  next();
-};
-
 // Rate Limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -43,8 +34,8 @@ app.get('/', (req, res) => {
   res.json({ message: 'Poslaju Tracking API is running' });
 });
 
-// Apply API Key middleware to tracking routes
-app.use('/track', apiKeyMiddleware, trackingRoutes);
+// Use tracking routes
+app.use('/track', trackingRoutes);
 
 // 404 handler
 app.use((req, res) => {
